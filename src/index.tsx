@@ -1,12 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CssGlobalContext, CssGlobalContextDefaultState } from './contexts/cssGlobal';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CssGlobalContext.Provider value={CssGlobalContextDefaultState}>
+      <App />
+    </CssGlobalContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
