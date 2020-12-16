@@ -1,8 +1,17 @@
-# Horizontal Swipe List with ReactJS
+# Horizontal List With Swipe 
 
-  - a blog article about a list with horizontal scroll 
+## Main Dependencies
 
-##
+  * [ReactJS](https://reactjs.org/)
+  * [styled components](https://styled-components.com/)
+
+## How To Run 
+
+  1. clone this repository to your local
+  2. install its dependencies
+  3. start dev server 
+
+## 
 
 ## Explanation 
 
@@ -10,28 +19,35 @@
 
   
 
-  
-
-# NOTE
-
-  ## Don't need to use 'scroll'
-
 # References
 
   - https://www.webdesignerdepot.com/2018/09/grid-vs-flexbox-which-should-you-choose/ 
 
 # Q&A
 
-  ## tsconfig.json is overwritten every time run 'npm start' and TypeScript complains that 'Cannot use JSX unless the '--jsx' flag is provided'. How do I fixed that?
+  ### My tsconfig.json is overwritten every time run 'npm start' and TypeScript complains that 'Cannot use JSX unless the '--jsx' flag is provided'. How do I fixed that?
 
     - ref: https://stackoverflow.com/questions/50432556/cannot-use-jsx-unless-the-jsx-flag-is-provided
 
   
-  ## ending padding is ignored when flex & horizontal scroll
+  ### The ending padding is ignored when flex & horizontal scroll. How do I add the ending padding?
 
-    - it turned out that it is NOT bug. the browsers ignore the ending padding. 
+    - it turned out that it is NOT a bug. the browsers ignore the ending padding. 
 
     - solution: add 'after' pseudo attribute of container element.
+    
+    ```
+      .container::after {
+        content: '';
+        padding-right: 0.02px; /* smallest size that is cross browser */
+      }
+    ```
 
-    - ref: https://webplatform.news/issues/2019-08-07
+    - ref: [how to fix the missing ending padding](https://webplatform.news/issues/2019-08-07)
   
+  ### Do I have to use flexbox to implement this swiping feature?
+  
+    - No! You can implement it using grid too. It is my personal preference. Also, flexbox supports more browsers than grid. (flexbox: 99.18% supported and grid: 95.86% supported at 15/12/2020) 
+    
+    - ref: [browser support for flex](https://caniuse.com/?search=flex)
+    - ref: [browser support for grid](https://caniuse.com/?search=grid)
