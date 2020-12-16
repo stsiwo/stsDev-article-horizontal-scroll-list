@@ -12,8 +12,6 @@
   1. clone this repository to your local
   2. install its dependencies
   3. start dev server 
-
-## 
   
 ## Q&A
 
