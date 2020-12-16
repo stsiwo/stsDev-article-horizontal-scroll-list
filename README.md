@@ -1,5 +1,7 @@
 # Horizontal Swipe List with ReactJS
 
+  - a blog article about a list with horizontal scroll 
+
 ##
 
 ## Explanation 
