@@ -12,18 +12,8 @@
   3. start dev server 
 
 ## 
-
-## Explanation 
-
-### TL;DR
-
   
-
-# References
-
-  - https://www.webdesignerdepot.com/2018/09/grid-vs-flexbox-which-should-you-choose/ 
-
-# Q&A
+## Q&A
 
   ### My tsconfig.json is overwritten every time run 'npm start' and TypeScript complains that 'Cannot use JSX unless the '--jsx' flag is provided'. How do I fixed that?
 
