@@ -50,3 +50,10 @@ export const sampleList: ListItemType[] = [
   },
 ]
 
+export const backgroundColorList: string[] = [
+  "rgba(215, 91, 102, 0.4)", // #D75B66
+  "rgba(35, 52, 92, 0.4)", // #23345C
+  "rgba(241, 186, 72, 0.4)", // #F1BA48
+  "rgba(189, 138, 68, 0.4)", // #BD8A44
+  "rgba(223, 175, 160, 0.4)", // #DFAFA0
+]

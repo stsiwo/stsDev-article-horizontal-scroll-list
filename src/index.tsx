@@ -4,6 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CssGlobalContext, CssGlobalContextDefaultState } from './contexts/cssGlobal';
+import smoothscroll from 'smoothscroll-polyfill';
+
+/**
+ * run the smooth scroll polyfill
+ *
+ **/
+smoothscroll.polyfill()
+
+
 
 ReactDOM.render(
   <React.StrictMode>
