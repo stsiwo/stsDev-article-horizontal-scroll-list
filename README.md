@@ -19,7 +19,7 @@
 
  This is because you are using old TypeScript (3.x.x),so bump up to (4.x.x).
  
- ref: https://stackoverflow.com/questions/50432556/cannot-use-jsx-unless-the-jsx-flag-is-provided
+ ref: https://stackoverflow.com/questions/50432556/cannot-use-jsx-unless-the-jsx-flag-is-provided, https://github.com/facebook/create-react-app/issues/10144
 
   
   ### The ending padding is ignored when flex & horizontal scroll. How do I add the ending padding?
