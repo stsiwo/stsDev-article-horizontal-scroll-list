@@ -17,7 +17,9 @@
 
   ### My tsconfig.json is overwritten every time run 'npm start' and TypeScript complains that 'Cannot use JSX unless the '--jsx' flag is provided'. How do I fixed that?
 
-    ref: https://stackoverflow.com/questions/50432556/cannot-use-jsx-unless-the-jsx-flag-is-provided
+ This is because you are using old TypeScript (3.x.x),so bump up to (4.x.x).
+ 
+ ref: https://stackoverflow.com/questions/50432556/cannot-use-jsx-unless-the-jsx-flag-is-provided
 
   
   ### The ending padding is ignored when flex & horizontal scroll. How do I add the ending padding?
