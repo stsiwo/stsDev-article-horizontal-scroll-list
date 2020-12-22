@@ -37,3 +37,10 @@
   No! You can implement it using grid too. It is my personal preference. Also, flexbox supports more browsers than grid. (flexbox: 99.18% supported and grid: 95.86% supported at 15/12/2020) 
     
   refs: [browser support for flex](https://caniuse.com/?search=flex), [browser support for grid](https://caniuse.com/?search=grid)
+  
+  ### Swiping is not smooth on mobile. How do I fix that?
+  
+  You need to install the polyfill to make swiping smooth. install the following dependencies.
+  
+  * [smoothscroll-polyfill](https://www.npmjs.com/package/smoothscroll-polyfill)
+  * [@types/smoothscroll-polyfill](https://www.npmjs.com/package/@types/smoothscroll-polyfill) (if you use TS)
