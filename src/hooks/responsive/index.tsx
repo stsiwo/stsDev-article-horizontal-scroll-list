@@ -19,6 +19,9 @@ export const useResponsive = (): UseResponsiveStatusOutputType => {
         
   React.useEffect(() => {   
     function handleScreenWidth() {
+
+      console.log(window.innerWidth)
+
       setScreenSize({
         currentScreenWidth: window.innerWidth,
         currentScreenHeight: window.innerHeight,

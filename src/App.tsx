@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { sampleList, ListItemType, backgroundColorList } from './state';
 import { useResponsive } from './hooks/responsive';
+import { useOrientation } from './hooks/orientation';
 
 /**
  * implementation steps
@@ -33,6 +34,9 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+  html {
+    text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+  }
 `
 
 const Container = styled.div`
@@ -55,34 +59,26 @@ const Indicator = styled.li`
   width: 20px;
   height: 10px;
   background-color: #000;
-
   margin: 0 5px;
 `
 
 const ListContainer = styled.div`
-
   width: 100vw; // screen size: responsive.currentScreenWidth
   padding: 0 7.5vw; //(x_cp)
-
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
-
   &:after {
     content: " ";
     padding-right: 7.5vw;
   }
-
 `
 
 const ListItem = styled.a`
-
   display: block;
   flex: 0 0 80vw; //(x_e)
   margin: 0 2.5vw; //(x_m)
-
   background-color: aqua;
-
   & img {
     width: 100%; 
   }
@@ -104,7 +100,33 @@ const App: React.FunctionComponent<{}> = (props) => {
   const responsive = useResponsive()
 
   // unit scroll percentage  = x_cp + x_m + x_e - x_p = 7.5 + 2.5 + 80 - 5.0 = 85%
-  const distancePerSwipe = 0.85 * responsive.currentScreenWidth
+  let distancePerSwipe = 0.85 * responsive.currentScreenWidth
+
+  const orientation = useOrientation()
+
+  // some mobile browsers can't detect resize event when changing orientation
+  // even if this, chrome mobile browser won't detect this orientation change (i think it is a bug)
+  React.useEffect(() => {
+    distancePerSwipe = 0.85 * responsive.currentScreenWidth
+  }, [
+    orientation.isOrientationChanged 
+  ])
+
+  React.useEffect(() => {
+
+    if (listContainerRef.current) {
+
+      listContainerRef.current.scrollTo({
+        behavior: "smooth",
+        left: 0, 
+      })
+
+      setSelectedListItemId(0)
+    }
+
+  }, [
+    responsive.currentScreenWidth 
+  ])
 
   // event handler triggered when a user starts touching the screen
   const handleTouchStartEvent: React.EventHandler<React.TouchEvent<HTMLDivElement>> = React.useCallback((e) => {
@@ -198,7 +220,7 @@ const App: React.FunctionComponent<{}> = (props) => {
         <img src={listItem.imageSrc} alt={`list item ${index}`} />
         <h3>{listItem.title}</h3>
         <p>{listItem.desc}</p>
-        <div>{listItem.date.toLocaleString("en-US", dateOption)}</div>
+        <small>{listItem.date.toLocaleString("en-US", dateOption)}</small>
       </ListItem>
     ))
   }
